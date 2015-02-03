@@ -24,4 +24,9 @@ public class Edge
         Edge e = (Edge) o;
         return e.v[0].equals(this.v[0]) && e.v[1].equals(this.v[1]);
     }
+    
+    @Override
+    public int hashCode() {
+        return this.toString().hashCode();
+    }
 }
