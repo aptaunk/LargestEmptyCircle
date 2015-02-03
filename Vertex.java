@@ -1,4 +1,5 @@
-public class Vertex implements Comparable<Vertex> {
+public class Vertex implements Comparable<Vertex> 
+{
     public double x;
     public double y;
     
