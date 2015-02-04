@@ -20,9 +20,9 @@ public class Edge
     public boolean equals(Object o) {
         if (o == null) return false;
         if (o == this) return true;
-        if (!(o instanceof Vertex)) return false;
+        if (!(o instanceof Edge)) return false;
         Edge e = (Edge) o;
-        return e.v[0].equals(this.v[0]) && e.v[1].equals(this.v[1]);
+        return e.toString().equals(this.toString());
     }
     
     @Override
