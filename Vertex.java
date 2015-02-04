@@ -1,5 +1,4 @@
-public class Vertex implements Comparable<Vertex> 
-{
+public class Vertex implements Comparable<Vertex> {
     public double x;
     public double y;
     
@@ -24,7 +23,7 @@ public class Vertex implements Comparable<Vertex>
         if (o == this) return true;
         if (!(o instanceof Vertex)) return false;
         Vertex v = (Vertex) o;
-        return v.x == this.x && v.y == this.y;
+        return v.toString().equals(this.toString());
     }
     
     @Override
