@@ -6,8 +6,10 @@ public class Edge
         v = new Vertex[2];
         if (v1.compareTo(v2) < 0) {
             v[0] = v1;
-        } else {
             v[1] = v2;
+        } else {
+            v[0] = v2;
+            v[1] = v1;
         }
     }
     
