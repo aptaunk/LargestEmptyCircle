@@ -1,6 +1,7 @@
 public class Triangle
 {
     public Vertex[] v;
+    public Edge[] e;
     
     public Triangle (Vertex v1, Vertex v2, Vertex v3) {
         v = new Vertex[3];
@@ -19,6 +20,10 @@ public class Triangle
                 rotateCCW();
             }
         }
+        e = new Edge[3];
+        e[0] = new Edge(v[1],v[2]);
+        e[1] = new Edge(v[0],v[2]);
+        e[2] = new Edge(v[0],v[1]);
     }
     
     private boolean isCCW() {
