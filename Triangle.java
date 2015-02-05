@@ -2,6 +2,8 @@ public class Triangle
 {
     public Vertex[] v;
     public Edge[] e;
+    public Vertex circumcenter;
+    public double circumcircleRadiusSquared;
     
     public Triangle (Vertex v1, Vertex v2, Vertex v3) {
         v = new Vertex[3];
@@ -24,6 +26,8 @@ public class Triangle
         e[0] = new Edge(v[1],v[2]);
         e[1] = new Edge(v[0],v[2]);
         e[2] = new Edge(v[0],v[1]);
+        circumcenter = getCircumcenter();
+        circumcircleRadiusSquared = getCircumcircleRadiusSquared();
     }
     
     private boolean isCCW() {
@@ -47,20 +51,18 @@ public class Triangle
     }
     
     public boolean insideCircumcircle(Vertex p) {
-        double[][] m = new double[3][3];
-        m[0][0] = v[0].x - p.x;
-        m[0][1] = v[0].y - p.y;
-        m[0][2] = (v[0].x*v[0].x-p.x*p.x)-(v[0].y*v[0].y-p.y*p.y);
-        m[1][0] = v[1].x - p.x;
-        m[1][1] = v[1].y - p.y;
-        m[1][2] = (v[1].x*v[1].x-p.x*p.x)-(v[1].y*v[1].y-p.y*p.y);
-        m[2][0] = v[2].x - p.x;
-        m[2][1] = v[2].y - p.y;
-        m[2][2] = (v[2].x*v[2].x-p.x*p.x)-(v[2].y*v[2].y-p.y*p.y);
-        return
-            m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])
-            - m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])
-            + m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]) > 0;
+        return (p.x-circumcenter.x)*(p.x-circumcenter.x)+(p.y-circumcenter.y)*(p.y-circumcenter.y) < circumcircleRadiusSquared;
+    }
+    
+    private Vertex getCircumcenter() {
+        double d = 2*(v[0].x*(v[1].y-v[2].y)+v[1].x*(v[2].y-v[0].y)+v[2].x*(v[0].y-v[1].y));
+        double ux = ((v[0].x*v[0].x+v[0].y*v[0].y)*(v[1].y-v[2].y)+(v[1].x*v[1].x+v[1].y*v[1].y)*(v[2].y-v[0].y)+(v[2].x*v[2].x+v[2].y*v[2].y)*(v[0].y-v[1].y))/d;
+        double uy = ((v[0].x*v[0].x+v[0].y*v[0].y)*(v[2].x-v[1].x)+(v[1].x*v[1].x+v[1].y*v[1].y)*(v[0].x-v[2].x)+(v[2].x*v[2].x+v[2].y*v[2].y)*(v[1].x-v[0].x))/d;
+        return new Vertex(ux,uy);
+    }
+    
+    private double getCircumcircleRadiusSquared() {
+        return (circumcenter.x-v[0].x)*(circumcenter.x-v[0].x)+(circumcenter.y-v[0].y)*(circumcenter.y-v[0].y);
     }
     
     @Override
