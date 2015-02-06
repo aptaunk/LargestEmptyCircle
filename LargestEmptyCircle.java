@@ -22,10 +22,10 @@ public class LargestEmptyCircle
     }
     
     private static boolean isLeftOfEdge(Vertex p, Vertex e_v1, Vertex e_v2) {
-        ax = e_v2.x-e_v1.x;
-        ay = e_v2.y-e_v1.y;
-        bx = p.x-e_v1.x;
-        by = p.y-e_v1.y;
+        double ax = e_v2.x-e_v1.x;
+        double ay = e_v2.y-e_v1.y;
+        double bx = p.x-e_v1.x;
+        double by = p.y-e_v1.y;
         return (ax * by) > (ay * bx);
     }
     
