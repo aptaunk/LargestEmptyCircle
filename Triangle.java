@@ -31,9 +31,11 @@ public class Triangle
     }
     
     private boolean isCCW() {
-        Vertex a = new Vertex(v[1].x-v[0].x,v[1].y-v[0].y);
-        Vertex b = new Vertex(v[3].x-v[0].x,v[3].y-v[0].y);
-        return (a.x * b.y) > (a.y * b.x);
+        double ax = v[1].x-v[0].x;
+        double ay = v[1].y-v[0].y;
+        double bx = v[3].x-v[0].x;
+        double by = v[3].y-v[0].y;
+        return (ax * by) > (ay * bx);
     }
     
     private void rotateCW() {
