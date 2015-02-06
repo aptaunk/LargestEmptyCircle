@@ -21,7 +21,7 @@ public class ConvexHull
                 i++;
                 pointOnHull = endpoint;
             }
-        } while (endpoint != p.get(0));
+        } while (!endpoint.equals(p.get(0)));
         return p;
     }
     private static boolean isLeftOfEdge(Vertex p, Vertex e_v1, Vertex e_v2) {
