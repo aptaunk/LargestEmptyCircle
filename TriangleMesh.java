@@ -1,13 +1,13 @@
-import java.util.ArrayList;
-import java.util.HashMap ;
+import java.util.HashSet;
+import java.util.HashMap;
 
 public class TriangleMesh
 {
-    public ArrayList<Triangle> triangles;
+    public HashSet<Triangle> triangles;
     public HashMap<Edge,Triangle[]> edge2TrianglesMap;
     
     public TriangleMesh() {
-        triangles = new ArrayList<Triangle>();
+        triangles = new HashSet<Triangle>();
         edge2TrianglesMap = new HashMap<Edge,Triangle[]>();
     }
     
@@ -25,5 +25,23 @@ public class TriangleMesh
                 }
             }
         }
+    }
+    
+    public void remove(Triangle t) {
+        for (Edge e : t.e) {
+            Triangle[] temp = edge2TrianglesMap.get(e);
+            if (temp!=null) {
+                if (t.equals(temp[0])) {
+                    temp[0] = null;
+                } 
+                if (t.equals(temp[1])) {
+                    temp[1] = null;
+                }
+                if (temp[0]==null && temp[1]==null) {
+                    edge2TrianglesMap.remove(e);
+                }
+            }
+        }
+        triangles.remove(t);
     }
 }
