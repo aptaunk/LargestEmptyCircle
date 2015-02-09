@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class DelaunayTriangulation
 {
-    public static TriangleMesh bowyerWatson(Triangle superTraingle, ArrayList<Vertex> s) {
+    public static TriangleMesh bowyerWatson(Triangle superTriangle, ArrayList<Vertex> s) {
         TriangleMesh triangulation = new TriangleMesh();
-        triangulation.add(superTraingle);
+        triangulation.add(superTriangle);
         for (Vertex v : s) {
             ArrayList<Triangle> badTriangles = new ArrayList<Triangle>();
             for (Triangle t : triangulation.triangles) {
@@ -30,14 +30,17 @@ public class DelaunayTriangulation
             }
         }
         for (Triangle t : triangulation.triangles) {
-            if (
-                t.v[0].equals(superTraingle.v[0]) || t.v[0].equals(superTraingle.v[1]) || t.v[0].equals(superTraingle.v[2]) ||
-                t.v[1].equals(superTraingle.v[1]) || t.v[1].equals(superTraingle.v[2]) ||
-                t.v[2].equals(superTraingle.v[2]) 
-            ) {
+            if (shareVertices(t,superTriangle)) {
                 triangulation.remove(t);
             }
         }
         return triangulation;
+    }
+    
+    private static boolean shareVertices(Triangle t1, Triangle t2) {
+        return 
+            t1.v[0].equals(t2.v[0]) || t1.v[0].equals(t2.v[1]) || t1.v[0].equals(t2.v[2]) ||
+            t1.v[1].equals(t2.v[1]) || t1.v[1].equals(t2.v[2]) ||
+            t1.v[2].equals(t2.v[2]);
     }
 }
