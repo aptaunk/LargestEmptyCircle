@@ -2,21 +2,17 @@ import java.util.*;
 
 public class ConvexHull
 {
-    public static ArrayList<Vertex> getConvexHull(Vertex[] s) {
-        return jarvis(s);
-    }
-    
-    private static ArrayList<Vertex> jarvis(Vertex[] s) {
+    public static ArrayList<Vertex> jarvis(ArrayList<Vertex> s) {
         ArrayList<Vertex> p = new ArrayList<Vertex>();
         Vertex pointOnHull = leftMostVertex(s);
         int i=0;
         Vertex endpoint;
         do {
             p.add(pointOnHull);
-            endpoint = s[0];
-            for (int j = 1; j<=s.length; j++) {
-                if ((endpoint.equals(pointOnHull)) || (isLeftOfEdge(s[j],p.get(i),endpoint))) {
-                    endpoint = s[j];
+            endpoint = s.get(0);
+            for (int j = 1; j<=s.size(); j++) {
+                if ((endpoint.equals(pointOnHull)) || (isLeftOfEdge(s.get(j),p.get(i),endpoint))) {
+                    endpoint = s.get(j);
                 }
                 i++;
                 pointOnHull = endpoint;
@@ -31,11 +27,11 @@ public class ConvexHull
         double by = p.y-e_v1.y;
         return (ax * by) > (ay * bx);
     }
-    private static Vertex leftMostVertex(Vertex[] s) {
-        Vertex min = s[0];
-        for (int i=0; i<s.length; i++) {
-            if (s[i].compareTo(min)<0) {
-                min = s[i];
+    private static Vertex leftMostVertex(ArrayList<Vertex> s) {
+        Vertex min = s.get(0);
+        for (int i=0; i<s.size(); i++) {
+            if (s.get(i).compareTo(min)<0) {
+                min = s.get(i);
             }
         }
         return min;
