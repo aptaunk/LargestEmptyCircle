@@ -40,7 +40,7 @@ public class DelaunayTriangulation
     private static boolean shareVertices(Triangle t1, Triangle t2) {
         return 
             t1.v[0].equals(t2.v[0]) || t1.v[0].equals(t2.v[1]) || t1.v[0].equals(t2.v[2]) ||
-            t1.v[1].equals(t2.v[1]) || t1.v[1].equals(t2.v[2]) ||
-            t1.v[2].equals(t2.v[2]);
+            t1.v[1].equals(t2.v[0]) || t1.v[1].equals(t2.v[1]) || t1.v[1].equals(t2.v[2]) ||
+            t1.v[2].equals(t2.v[0]) || t1.v[2].equals(t2.v[1]) || t1.v[2].equals(t2.v[2]);
     }
 }
