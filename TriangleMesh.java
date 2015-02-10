@@ -44,4 +44,18 @@ public class TriangleMesh
         }
         triangles.remove(t);
     }
+    
+    public boolean isSharedEdge(Edge e) {
+        Triangle[] temp = edge2TrianglesMap.get(e);
+        return temp[0]!=null && temp[1]!=null;
+    }
+    
+    public Triangle[] getNeighbours(Triangle t) {
+        Triangle[] neighbour = new Triangle[3];
+        for (int i=0; i<3; i++) {
+            Triangle[] temp = edge2TrianglesMap.get(t.e[i]);
+            neighbour[i] = temp[0].equals(t)?temp[1]:temp[0];
+        }
+        return neighbour;
+    }
 }
