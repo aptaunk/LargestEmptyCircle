@@ -16,7 +16,7 @@ public class DelaunayTriangulation
             for (Triangle t : badTriangles) {
                 for (Edge e : t.e) {
                     Triangle[] temp = triangulation.edge2TrianglesMap.get(e);
-                    if (temp[0]==null || temp[1]==null) {
+                    if (!triangulation.isSharedEdge(e)) {
                         polygon.add(e);
                     }
                 }
