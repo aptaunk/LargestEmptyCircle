@@ -32,8 +32,8 @@ public class Triangle
     private boolean isCCW() {
         double ax = v[1].x-v[0].x;
         double ay = v[1].y-v[0].y;
-        double bx = v[3].x-v[0].x;
-        double by = v[3].y-v[0].y;
+        double bx = v[2].x-v[0].x;
+        double by = v[2].y-v[0].y;
         return (ax * by) > (ay * bx);
     }
     
