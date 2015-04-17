@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=TriangleMesh()
+comment1.params=t
+comment1.target=void\ add(Triangle)
+comment2.params=t
+comment2.target=void\ remove(Triangle)
+comment3.params=e
+comment3.target=boolean\ isSharedEdge(Edge)
+comment4.params=t
+comment4.target=Triangle[]\ getNeighbours(Triangle)
+numComments=5

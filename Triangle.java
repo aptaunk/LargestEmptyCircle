@@ -8,10 +8,9 @@ public class Triangle
     public Triangle (Vertex v1, Vertex v2, Vertex v3) {
         v = new Vertex[3];
         v[0] = v1;
-        if (isCCW()) {
-            v[1] = v2;
-            v[2] = v3;
-        } else {
+		v[1] = v2;
+		v[2] = v3;
+        if (!isCCW()) {
             v[1] = v3;
             v[2] = v2;
         }

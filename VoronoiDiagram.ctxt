@@ -1,0 +1,4 @@
+#BlueJ class context
+comment0.params=triangulation
+comment0.target=Mesh\ dualizeDelauneyTriangulation(TriangleMesh)
+numComments=1

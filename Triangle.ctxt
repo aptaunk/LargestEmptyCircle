@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=v1\ v2\ v3
+comment0.target=Triangle(Vertex,\ Vertex,\ Vertex)
+comment1.params=
+comment1.target=boolean\ isCCW()
+comment2.params=
+comment2.target=void\ rotateCW()
+comment3.params=
+comment3.target=void\ rotateCCW()
+comment4.params=p
+comment4.target=boolean\ insideCircumcircle(Vertex)
+comment5.params=
+comment5.target=Vertex\ getCircumcenter()
+comment6.params=
+comment6.target=double\ getCircumcircleRadiusSquared()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment8.params=o
+comment8.target=boolean\ equals(java.lang.Object)
+comment9.params=
+comment9.target=int\ hashCode()
+numComments=10
