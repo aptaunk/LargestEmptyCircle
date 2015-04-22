@@ -29,11 +29,12 @@ public class DelaunayTriangulation
                 triangulation.add(newTri);
             }
         }
+        /*
         for (Triangle t : triangulation.triangles) {
             if (shareVertices(t,superTriangle)) {
                 triangulation.remove(t);
             }
-        }
+        }*/
         return triangulation;
     }
     

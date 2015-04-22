@@ -10,7 +10,7 @@ public class ConvexHull
         do {
             p.add(pointOnHull);
             endpoint = s.get(0);
-            for (int j = 1; j<=s.size(); j++) {
+            for (int j = 1; j<s.size(); j++) {
                 if ((endpoint.equals(pointOnHull)) || (isLeftOfEdge(s.get(j),p.get(i),endpoint))) {
                     endpoint = s.get(j);
                 }
